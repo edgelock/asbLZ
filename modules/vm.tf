@@ -1,5 +1,5 @@
 resource "azurerm_network_interface" "main" {
-  name                = "nic-navigator-prod-001"
+  name                = "nic-${var.app_name}-${var.env}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -11,7 +11,7 @@ resource "azurerm_network_interface" "main" {
 }
 
 resource "azurerm_network_interface" "main2" {
-  name                = "nic-navigator-prod-002"
+  name                = "nic-${var.app_name}-${var.env}-002"
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -23,7 +23,7 @@ resource "azurerm_network_interface" "main2" {
 }
 
 resource "azurerm_virtual_machine" "main" {
-  name                  = "vm-navigator-prod-001"
+  name                  = "vm-${var.app_name}-${var.env}-001"
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.main.id]
@@ -61,7 +61,7 @@ resource "azurerm_virtual_machine" "main" {
 }
 
 resource "azurerm_virtual_machine" "main2" {
-  name                  = "vm-navigator-prod-002"
+  name                  = "vm-${var.app_name}-${var.env}-002"
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.main2.id]

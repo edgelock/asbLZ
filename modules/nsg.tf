@@ -1,5 +1,5 @@
 resource "azurerm_network_security_group" "example" {
-  name                = "${var.env}-ese-vmi-apim-nsg"
+  name                = "nsg-${var.app_name}-${var.env}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
 

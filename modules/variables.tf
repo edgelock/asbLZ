@@ -57,5 +57,10 @@ variable "resource_tags" {
 
 variable "env" {
   description = "The prefix used for all resources in this plan"
-  default     = "dev"
+  default     = "prod"
+}
+
+variable "app_name" {
+  description = "The app name prefix for all resources in this plan"
+  default     = "navigator"
 }

@@ -1,5 +1,5 @@
 resource "azurerm_synapse_workspace" "example" {
-  name                                 = "aml-navigator-prod"
+  name                                 = "aml-${var.app_name}-${var.env}"
   resource_group_name                  = var.resource_group_name
   location                             = var.location
   storage_data_lake_gen2_filesystem_id = azurerm_storage_data_lake_gen2_filesystem.example.id
