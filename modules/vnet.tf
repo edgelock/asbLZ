@@ -15,6 +15,7 @@ resource "azurerm_subnet" "subnets" {
   address_prefixes                              = each.value["subnet_range"]
   service_endpoints                             = each.value["service_endpoints"]
   service_endpoint_policy_ids                   = each.value["service_endpoint_policy_ids"]
+  enforce_private_link_endpoint_network_policies = true
 
   dynamic "delegation" {
     for_each = each.value["delegation_name"] != null ? [1] : []
