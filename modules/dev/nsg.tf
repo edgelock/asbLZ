@@ -56,3 +56,18 @@ resource "azurerm_network_security_group" "example3" {
   
   tags = var.resource_tags
 }
+
+resource "azurerm_subnet_network_security_group_association" "example" {
+  subnet_id                 = azurerm_subnet.subnets["inv-dev-uan-pe-snet"].id
+  network_security_group_id = azurerm_network_security_group.example.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "example2" {
+  subnet_id                 = azurerm_subnet.subnets["inv-dev-uan-syn-snet"].id
+  network_security_group_id = azurerm_network_security_group.example2.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "example3" {
+  subnet_id                 = azurerm_subnet.subnets["inv-dev-uan-vm-snet"].id
+  network_security_group_id = azurerm_network_security_group.example3.id
+}
