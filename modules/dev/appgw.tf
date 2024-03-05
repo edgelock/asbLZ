@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "example2" {
-  name                = "pip-${var.env}-${var.app_name}-002"
+  name                = "${var.prefix}-${var.env}-${var.app_name}-pip-001"
   resource_group_name = var.resource_group_name
   location            = var.location
   allocation_method   = "Static"
@@ -29,7 +29,7 @@ resource "azurerm_application_gateway" "network" {
 
   gateway_ip_configuration {
     name      = "my-gateway-ip-configuration"
-    subnet_id = azurerm_subnet.subnets["inv-prod-navigator-snet001"].id
+    subnet_id = azurerm_subnet.subnets["inv-dev-uan-appgw-snet"].id
   }
 
   frontend_port {
