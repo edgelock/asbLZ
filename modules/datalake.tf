@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "example" {
-  name                     = "st${var.app_name}${var.env}001"
+  name                     = "st${var.env}${var.app_name}001"
   resource_group_name      = var.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
@@ -10,7 +10,7 @@ resource "azurerm_storage_account" "example" {
 }
 
 resource "azurerm_storage_data_lake_gen2_filesystem" "example" {
-  name               = "dlsnavigatorprod"
+  name               = "dl${var.app_name}${var.env}"
   storage_account_id = azurerm_storage_account.example.id
 
   properties = {

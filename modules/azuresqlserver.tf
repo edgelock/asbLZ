@@ -1,5 +1,5 @@
 resource "azurerm_sql_server" "example" {
-  name                         = "sqlsvr-${var.app_name}-${var.env}"
+  name                         = "sqlsvr-${var.env}-${var.app_name}"
   resource_group_name          = var.resource_group_name
   location                     = var.location
   version                      = "12.0"

@@ -1,5 +1,5 @@
 resource "azurerm_key_vault" "example" {
-  name                        = "kv-navigator-prod"
+  name                        = "kv-${var.env}-${var.app_name}"
   location                    = var.location
   resource_group_name         = var.resource_group_name
   enabled_for_disk_encryption = true

@@ -1,33 +1,34 @@
 resource "azurerm_network_interface" "main" {
-  name                = "nic-${var.app_name}-${var.env}-001"
+  name                = "nic-${var.env}-${var.app_name}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = azurerm_subnet.subnets["inv-prod-uan-snet002"].id
+    subnet_id                     = azurerm_subnet.subnets["inv-${var.env}-${var.app_name}-002"].id
     private_ip_address_allocation = "Dynamic"
   }
 }
 
 resource "azurerm_network_interface" "main2" {
-  name                = "nic-${var.app_name}-${var.env}-002"
+  name                = "nic-${var.env}-${var.app_name}-002"
   location            = var.location
   resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = azurerm_subnet.subnets["inv-prod-uan-snet002"].id
+    subnet_id                     = azurerm_subnet.subnets["inv-${var.env}-${var.app_name}-002"].id
     private_ip_address_allocation = "Dynamic"
   }
 }
 
 resource "azurerm_virtual_machine" "main" {
-  name                  = "vm-${var.app_name}-${var.env}-001"
+  name                  = "vm-${var.env}-${var.app_name}-001"
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.main.id]
   vm_size               = "Standard_DS1_v2"
+  delete_os_disk_on_termination = true
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   # delete_os_disk_on_termination = true
@@ -42,7 +43,7 @@ resource "azurerm_virtual_machine" "main" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "myosdisk1"
+    name              = "vmosdisk001"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -61,11 +62,12 @@ resource "azurerm_virtual_machine" "main" {
 }
 
 resource "azurerm_virtual_machine" "main2" {
-  name                  = "vm-${var.app_name}-${var.env}-002"
+  name                  = "vm-${var.env}-${var.app_name}-002"
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.main2.id]
   vm_size               = "Standard_DS1_v2"
+  delete_os_disk_on_termination = true
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   # delete_os_disk_on_termination = true
@@ -80,7 +82,7 @@ resource "azurerm_virtual_machine" "main2" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "myosdisk2"
+    name              = "vmosdisk002"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
