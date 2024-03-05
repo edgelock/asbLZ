@@ -1,5 +1,5 @@
 resource "azurerm_key_vault" "example" {
-  name                        = "kv-${var.env}-${var.app_name}"
+  name                        = "${var.prefix}-${var.env}-${var.app_name}-kv"
   location                    = var.location
   resource_group_name         = var.resource_group_name
   enabled_for_disk_encryption = true

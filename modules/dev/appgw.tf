@@ -17,7 +17,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
-  name                = "appgw-${var.env}-${var.app_name}"
+  name                = "${var.prefix}-${var.env}-${var.app_name}-appgw"
   resource_group_name = var.resource_group_name
   location            = var.location
 
