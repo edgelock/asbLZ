@@ -4,6 +4,7 @@ resource "azurerm_public_ip" "example2" {
   location            = var.location
   allocation_method   = "Static"
   sku                = "Standard"
+  tags = var.resource_tags
 }
 
 locals {

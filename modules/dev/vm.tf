@@ -2,6 +2,7 @@ resource "azurerm_network_interface" "main" {
   name                = "${var.prefix}-${var.env}-${var.app_name}-nic-001"
   location            = var.location
   resource_group_name = var.resource_group_name
+  tags = var.resource_tags
 
   ip_configuration {
     name                          = "testconfiguration1"
@@ -14,6 +15,7 @@ resource "azurerm_network_interface" "main2" {
   name                = "${var.prefix}-${var.env}-${var.app_name}-002"
   location            = var.location
   resource_group_name = var.resource_group_name
+  tags = var.resource_tags
 
   ip_configuration {
     name                          = "testconfiguration1"
@@ -56,9 +58,7 @@ resource "azurerm_virtual_machine" "main" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
-  tags = {
-    environment = "staging"
-  }
+  tags = var.resource_tags
 }
 
 resource "azurerm_virtual_machine" "main2" {
@@ -95,7 +95,5 @@ resource "azurerm_virtual_machine" "main2" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
-  tags = {
-    environment = "staging"
-  }
+  tags = var.resource_tags
 }

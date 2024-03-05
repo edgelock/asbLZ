@@ -7,6 +7,7 @@ resource "azurerm_storage_account" "example" {
   account_kind             = "StorageV2"
   is_hns_enabled           = "true"
   allow_nested_items_to_be_public = false
+  tags = var.resource_tags
 }
 
 resource "azurerm_storage_data_lake_gen2_filesystem" "example" {
