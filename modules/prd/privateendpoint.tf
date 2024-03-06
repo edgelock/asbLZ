@@ -2,7 +2,7 @@ resource "azurerm_private_endpoint" "example" {
   name                = "pe-${var.env}-${var.app_name}-001"
   location            = var.location
   resource_group_name =  var.resource_group_name
-  subnet_id           = azurerm_subnet.subnets["inv-dev-uan-pe-snet"].id
+  subnet_id           = azurerm_subnet.subnets["inv-prd-uan-pe-snet"].id
   tags = var.resource_tags
 
   private_service_connection {
@@ -17,7 +17,7 @@ resource "azurerm_private_endpoint" "example2" {
   name                = "pe-${var.env}-${var.app_name}-002"
   location            = var.location
   resource_group_name =  var.resource_group_name
-  subnet_id           = azurerm_subnet.subnets["inv-dev-uan-pe-snet"].id
+  subnet_id           = azurerm_subnet.subnets["inv-prd-uan-pe-snet"].id
   tags = var.resource_tags
 
   private_service_connection {
@@ -32,7 +32,7 @@ resource "azurerm_private_endpoint" "example3" {
   name                = "pe-${var.env}-${var.app_name}-003"
   location            = var.location
   resource_group_name =  var.resource_group_name
-  subnet_id           = azurerm_subnet.subnets["inv-dev-uan-pe-snet"].id
+  subnet_id           = azurerm_subnet.subnets["inv-prd-uan-pe-snet"].id
   tags = var.resource_tags
 
   private_service_connection {

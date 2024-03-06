@@ -6,7 +6,7 @@ resource "azurerm_network_interface" "main" {
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = azurerm_subnet.subnets["inv-dev-uan-vm-snet"].id
+    subnet_id                     = azurerm_subnet.subnets["inv-prd-uan-vm-snet"].id
     private_ip_address_allocation = "Dynamic"
   }
 }
@@ -19,7 +19,7 @@ resource "azurerm_network_interface" "main2" {
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = azurerm_subnet.subnets["inv-dev-uan-vm-snet"].id
+    subnet_id                     = azurerm_subnet.subnets["inv-prd-uan-vm-snet"].id
     private_ip_address_allocation = "Dynamic"
   }
 }

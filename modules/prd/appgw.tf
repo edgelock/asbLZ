@@ -30,7 +30,7 @@ resource "azurerm_application_gateway" "network" {
 
   gateway_ip_configuration {
     name      = "my-gateway-ip-configuration"
-    subnet_id = azurerm_subnet.subnets["inv-dev-uan-appgw-snet"].id
+    subnet_id = azurerm_subnet.subnets["inv-prd-uan-appgw-snet"].id
   }
 
   frontend_port {
