@@ -46,7 +46,7 @@ variable "resource_tags" {
   description = "Tags to set for all resources"
   type        = map(string)
   default     = {
-    Environment     = "dev",
+    Environment     = "hub",
     CreatedBy = "jcharles@3cloudsolutions.com"
     Project = "vmi"
     Owner = "integrations"
