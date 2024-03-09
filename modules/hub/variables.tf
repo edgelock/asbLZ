@@ -62,5 +62,5 @@ variable "env" {
 
 variable "app_name" {
   description = "The app name prefix for all resources in this plan"
-  default     = "navigator"
+  default     = "uan"
 }
