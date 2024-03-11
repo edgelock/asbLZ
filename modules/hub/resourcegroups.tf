@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "hub" {
-  name     = "${var.env}-${var.app_name}-net-rg"
+  name     = "${var.env}-${var.app_name}-vnet-rg"
   location = "UAE North"
 }
 

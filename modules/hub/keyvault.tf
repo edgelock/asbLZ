@@ -1,7 +1,7 @@
 resource "azurerm_key_vault" "example" {
   name                        = "${var.env}-${var.app_name}-kv"
   location                    = var.location
-  resource_group_name         = var.resource_group_name
+  resource_group_name         = azurerm_resource_group.hub.name
   enabled_for_disk_encryption = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   soft_delete_retention_days  = 7

@@ -3,7 +3,7 @@
 resource "azurerm_virtual_network" "virtual_network" {
   name                = var.vnet_name
   address_space       = var.vnet_address_space
-  resource_group_name = var.resource_group_name
+  resource_group_name = azurerm_resource_group.hub.name
   location            = var.location
   tags = var.resource_tags
 }
@@ -11,7 +11,7 @@ resource "azurerm_virtual_network" "virtual_network" {
 resource "azurerm_subnet" "subnets" {
   for_each                                      = var.subnets
   name                                          = each.key
-  resource_group_name                           = var.resource_group_name
+  resource_group_name                           = azurerm_resource_group.hub.name
   virtual_network_name                          = azurerm_virtual_network.virtual_network.name
   address_prefixes                              = each.value["subnet_range"]
   service_endpoints                             = each.value["service_endpoints"]
