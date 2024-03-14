@@ -47,10 +47,9 @@ variable "resource_tags" {
   type        = map(string)
   default     = {
     Environment     = "hub",
-    CreatedBy = "jcharles@3cloudsolutions.com"
-    Project = "vmi"
-    Owner = "integrations"
-    Team = "vmi"
+    CreatedBy = "3Cloud-Jhante.Charles"
+    Team = "Infrastructure"
+
   }
 }
 
