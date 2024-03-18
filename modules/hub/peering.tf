@@ -1,5 +1,5 @@
 resource "azurerm_virtual_network_peering" "example_1" {
-  name                      = "peerHubToDev"
+  name                      = "peerHubVnetToDev"
   resource_group_name       = azurerm_resource_group.hub.name
   virtual_network_name      = azurerm_virtual_network.virtual_network.name
   remote_virtual_network_id = "/subscriptions/51325363-3635-412f-b99f-26238c60a8ba/resourceGroups/inv-dev-uan-vnet-rg/providers/Microsoft.Network/virtualNetworks/inv-dev-uan-vnet"
