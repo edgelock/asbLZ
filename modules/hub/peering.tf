@@ -7,9 +7,9 @@ resource "azurerm_virtual_network_peering" "example_1" {
 }
 
 resource "azurerm_virtual_network_peering" "example_2" {
-  name                      = "peerHubToPrd"
+  name                      = "peerHubVnetToPrdVnet"
   resource_group_name       = azurerm_resource_group.hub.name
   virtual_network_name      = azurerm_virtual_network.virtual_network.name
-  remote_virtual_network_id = "/subscriptions/6b55ba09-7467-473f-81b8-d751c3f6fb87/resourceGroups/inv-prd-uan-vnet-rg/providers/Microsoft.Network/virtualNetworks/inv-prd-uan-vnet"
+  remote_virtual_network_id = "/subscriptions/6b55ba09-7467-473f-81b8-d751c3f6fb87/resourceGroups/inv-prod-uan-vnet-rg/providers/Microsoft.Network/virtualNetworks/inv-prod-uan-vnet"
     allow_gateway_transit = true
 }
