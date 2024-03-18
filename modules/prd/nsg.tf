@@ -88,21 +88,21 @@ resource "azurerm_network_security_group" "example4" {
   tags = var.resource_tags
 }
 resource "azurerm_subnet_network_security_group_association" "example" {
-  subnet_id                 = azurerm_subnet.subnets["inv-prd-uan-pe-snet"].id
+  subnet_id                 = azurerm_subnet.subnets["inv-prod-uan-pe-snet"].id
   network_security_group_id = azurerm_network_security_group.example.id
 }
 
 resource "azurerm_subnet_network_security_group_association" "example2" {
-  subnet_id                 = azurerm_subnet.subnets["inv-prd-uan-syn-snet"].id
+  subnet_id                 = azurerm_subnet.subnets["inv-prod-uan-syn-snet"].id
   network_security_group_id = azurerm_network_security_group.example2.id
 }
 
 resource "azurerm_subnet_network_security_group_association" "example3" {
-  subnet_id                 = azurerm_subnet.subnets["inv-prd-uan-vm-snet"].id
+  subnet_id                 = azurerm_subnet.subnets["inv-prod-uan-vm-snet"].id
   network_security_group_id = azurerm_network_security_group.example3.id
 }
 
 resource "azurerm_subnet_network_security_group_association" "example4" {
-  subnet_id                 = azurerm_subnet.subnets["inv-prd-uan-appgw-snet"].id
+  subnet_id                 = azurerm_subnet.subnets["inv-prod-uan-appgw-snet"].id
   network_security_group_id = azurerm_network_security_group.example4.id
 }
