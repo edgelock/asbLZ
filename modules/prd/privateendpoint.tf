@@ -42,3 +42,34 @@ resource "azurerm_private_endpoint" "example3" {
     is_manual_connection           = false
   }
 }
+
+resource "azurerm_private_endpoint" "example4" {
+  name                = "pe-${var.env}-${var.app_name}-004"
+  location            = var.location
+  resource_group_name =  var.resource_group_name
+  subnet_id           = azurerm_subnet.subnets["inv-prod-uan-pe-snet"].id
+  tags = var.resource_tags
+
+  private_service_connection {
+    name                           = "pe-${var.env}-${var.app_name}-004"
+    private_connection_resource_id =  azurerm_app_service.example.id
+    subresource_names              = [ "sites" ]
+    is_manual_connection           = false
+  }
+}
+
+
+resource "azurerm_private_endpoint" "example5" {
+  name                = "pe-${var.env}-${var.app_name}-005"
+  location            = var.location
+  resource_group_name =  var.resource_group_name
+  subnet_id           = azurerm_subnet.subnets["inv-prod-uan-pe-snet"].id
+  tags = var.resource_tags
+
+  private_service_connection {
+    name                           = "pe-${var.env}-${var.app_name}-005"
+    private_connection_resource_id =  azurerm_app_service.example2.id
+    subresource_names              = [ "sites" ]
+    is_manual_connection           = false
+  }
+}
