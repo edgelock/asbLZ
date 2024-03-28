@@ -52,7 +52,7 @@ resource "azurerm_private_endpoint" "example4" {
 
   private_service_connection {
     name                           = "pe-${var.env}-${var.app_name}-004"
-    private_connection_resource_id =  azurerm_app_service.example.id
+    private_connection_resource_id =  azurerm_linux_web_app.example.id
     subresource_names              = [ "sites" ]
     is_manual_connection           = false
   }
@@ -68,7 +68,7 @@ resource "azurerm_private_endpoint" "example5" {
 
   private_service_connection {
     name                           = "pe-${var.env}-${var.app_name}-005"
-    private_connection_resource_id =  azurerm_app_service.example2.id
+    private_connection_resource_id =  azurerm_linux_web_app.example2.id
     subresource_names              = [ "sites" ]
     is_manual_connection           = false
   }
